@@ -1,0 +1,125 @@
+---
+import { ViewTransitions } from "astro:transitions"
+import Footer from "@components/footer.astro"
+import Header from "@components/ui/header.astro"
+import "@fontsource-variable/onest"
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Quiénes Somos
+    El 20 de octubre de 1938, un grupo de empresarios sampedranos encabezados por
+    Don Roberto Fasquelle Orellana fundaron COMPAÑÍA AZUCARERA HONDUREÑA, S.A. (CAHSA).
+    Su primer ingenio, llamado “El Juguete”, tenía una capacidad diaria de molienda de 150 toneladas cortas de caña.
+    En 1948, instalaron un nuevo ingenio llamado “San Jose” con capacidad de 600 toneladas diarias.
+    En 1960, se inauguró el ingenio “San Ramón” en Villanueva, Cortés, con capacidad de 1,300 toneladas diarias.
+    Actualmente, CAHSA cuenta con uno de los ingenios más modernos de Centro América, con una capacidad de 16,000 toneladas diarias y una producción anual de 3,000,000 de quintales de azúcar.
+    
+    Ingenio Santa Matilde
+    El Ingenio Santa Matilde genera 80,431,930 Kw-h de energía eléctrica limpia con bagazo de caña.
+    De esta producción, 38,565,130 Kw-h son consumidos internamente, y los restantes 41,866,830 Kw-h se venden a la Empresa Nacional de Energía Eléctrica ENEE para consumo nacional, contribuyendo positivamente al medio ambiente.
+    CAHSA también realiza acciones de reforestación y ha contribuido históricamente al desarrollo de proyectos comunales y gubernamentales en diversas áreas como educación, servicios públicos, reforestación, energía limpia, ambiente y deportes.
+    
+    Cómo Trabajamos
+    Nuestro producto se comercializa localmente a través de Central de Ingenios, S.A. de C.V. (CISA). La comercialización externa se realiza a través del área de exportaciones, con calidades estándar de 45 ICUMSA, 200 ICUMSA, 800 a 1800 ICUMSA, en presentaciones de sacos de 25 kg, 50 kg, 1 tonelada métrica y a granel.
+    Si deseas ser un nuevo cliente, puedes enviar un correo a infocahsa@cahsa.hn solicitando información y con gusto te atenderemos."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <link
+      rel="preload"
+      href="/fonts/tomaso.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <slot name="preload" />
+    <ViewTransitions />
+  </head>
+  <body
+    class="dark:bg-color bg-white transition-colors duration-500 ease-in-out"
+  >
+    <Header />
+    <slot />
+    <Footer />
+    <style is:global>
+      html.dark body {
+        background: hsl(240, 5%, 12%);
+      }
+
+      html {
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        font-family: "Onest Variable", system-ui, sans-serif;
+      }
+
+      p,
+      span,
+      ul li {
+        max-width: 100%;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          "Open Sans",
+          "Helvetica Neue",
+          sans-serif;
+        letter-spacing: 0.03em;
+        word-spacing: 0.05em;
+      }
+      button {
+        padding: 10px 20px; /* Espaciado interno del botón */
+        font-size: 16px; /* Tamaño del texto */
+        border: none; /* Sin borde */
+        border-radius: 5px; /* Esquinas redondeadas */
+        cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+      }
+
+      .text__glowing {
+        transition: text-shadow 0.3s ease;
+      }
+
+      .text__glowing:hover {
+        text-shadow:
+          0 0 10px #ffffff,
+          0 0 20px #ffffff,
+          0 0 40px #0cf820,
+          0 0 80px #0cf820,
+          0 0 120px #0cf820;
+      }
+
+      #header-nav {
+        animation: blur linear both;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
+      }
+
+      @keyframes blur {
+        to {
+          box-shadow:
+            0px 5px 50px -5px rgba(206, 206, 206, 0.1),
+            0px 0px 0 1px rgba(206, 205, 205, 0.3);
+          background: rgba(223, 223, 223, 0.3);
+          backdrop-filter: blur(10px);
+        }
+      }
+    </style>
+  </body>
+</html>

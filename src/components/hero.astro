@@ -1,0 +1,27 @@
+---
+import Link from "@components/ui/link.astro"
+---
+
+<main class="grid md:grid-cols-2 place-items-center pt-16 pb-8 md:pt-8">
+  <div class="py-6 flex flex-col md:order-1 overflow-hidden">
+    <div class="w-1/2 h-1/2 md:w-full m-auto">
+      <img class="w-full h-full object-cover" src="/logo.webp" />
+    </div>
+  </div>
+
+  <div>
+    <h1
+      class="text-3xl sm:text-5xl leading-normal font-extrabold tracking-tight text-gray-600 dark:text-yellow-300"
+    >
+      COMPAÑÍA AZUCARERA HONDUREÑA, S.A.
+    </h1>
+    <p class="text-lg mt-4 text-gray-500 max-w-xl dark:text-gray-200">
+      Uno de los ingenios más modernos y eficientes de Centro América<br /> con una
+      capacidad de 16,000 toneladas cortas de caña por día y una producción anual
+      de 3,000,000 de quintales de azúcar.
+    </p>
+    <div class="mt-10 w-full flex flex-col sm:flex-row gap-3">
+      <Link href="#" target="_blank" rel="noopener">Contáctenos</Link>
+    </div>
+  </div>
+</main>

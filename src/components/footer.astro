@@ -1,0 +1,20 @@
+---
+
+---
+
+<footer
+  class="flex flex-col gap-2 sm:flex-row py-6 w-full dark:border-green-400 border-gray-50 shrink-0 items-center px-4 md:px-6 border-t"
+>
+  <p class="text-xs text-gray-500 dark:text-gray-200">
+    <span
+      >&copy; <span id="currentYear"></span> GRUPO CAHSA. All Rights Reserved.</span
+    >
+  </p>
+</footer>
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const currentYearElement = document.getElementById("currentYear")
+    if (currentYearElement)
+      currentYearElement.innerHTML = new Date().getFullYear().toString()
+  })
+</script>

@@ -1,0 +1,100 @@
+---
+import Link from "./ui/link.astro"
+---
+
+<div
+  class="relative background mx-auto h-dvh w-full max-w-screen-xl md:aspect-video md:h-[80vh] xl:h-full"
+>
+  <div
+    class="absolute inset-0 h-full justify-center z-10 m-auto flex flex-col items-center w-full"
+  >
+    <section
+      class="absolute z-10 animate-fade-up flex justify-center items-center gap-8 flex-col"
+    >
+      <h1
+        class="flex text-gray-100 font-bold items-center gap-5 text-4xl md:text-6xl lg:gap-20 lg:text-8xl font-tomaso"
+      >
+        <span>C</span>
+        <span>A</span>
+        <span>H</span>
+        <span>S</span>
+        <span>A</span>
+      </h1>
+
+      <p
+        class="subtitle text-yellow-300 text-xl lg:text-2xl text-center text-wrap font-jura px-4"
+      >
+        COMPAÑÍA AZUCARERA HONDUREÑA, S.A
+      </p>
+
+      <Link href="/trayectoria" rel="noopener">
+        Explora Nuestra Trayectoria
+      </Link>
+    </section>
+
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      id="main-video"
+      preload="metadata"
+      class="video hidden cp-v h-full w-full object-cover object-top animate-duration-[2s] animate-ease-in-out"
+    >
+      <source src="/video.mp4" type="video/mp4" />
+    </video>
+
+    <video
+      class="video hidden absolute -bottom-12 -z-40 blur-3xl animate-duration-[2s] animate-ease-in-out"
+      autoplay
+      loop
+      muted
+      preload="metadata"
+    >
+      <source src="/video.mp4" type="video/mp4" />
+    </video>
+
+    <script>
+      document.addEventListener("astro:page-load", () => {
+        const firstVideo = document.querySelector(
+          "#main-video"
+        ) as HTMLMediaElement
+
+        if (firstVideo) {
+          const videos = document.querySelectorAll(
+            ".video"
+          ) as NodeListOf<HTMLMediaElement>
+
+          if (firstVideo.readyState >= 3) {
+            videos.forEach((videoEl) => {
+              videoEl.classList.remove("hidden")
+              videoEl.classList.add("animate-fade")
+            })
+
+            return
+          }
+        }
+      })
+    </script>
+
+    <style>
+      @font-face {
+        font-family: "Jura";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/jura.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+
+      .subtitle {
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      }
+      .background {
+        background: rgb(175, 175, 175);
+      }
+    </style>
+  </div>
+</div>
