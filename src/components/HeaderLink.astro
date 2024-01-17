@@ -13,7 +13,7 @@ const {
 } = Astro.props
 
 const currentPath = Astro.url.pathname
-const destination = `https://cahsa.vercel.app/${href}`
+const destination = `https://cahsa.vercel.app${href}`
 const isActive = currentPath === destination && checkActive
 ---
 
