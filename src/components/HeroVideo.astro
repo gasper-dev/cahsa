@@ -3,7 +3,7 @@ import Link from "./ui/link.astro"
 ---
 
 <div
-  class="relative background mx-auto h-dvh w-full max-w-screen-xl md:aspect-video md:h-[80vh] xl:h-full"
+  class="relative mx-auto h-dvh w-full max-w-screen-xl md:aspect-video md:h-[80vh] xl:h-full"
 >
   <div
     class="absolute inset-0 h-full justify-center z-10 m-auto flex flex-col items-center w-full"
@@ -22,7 +22,7 @@ import Link from "./ui/link.astro"
       </h1>
 
       <p
-        class="subtitle text-yellow-300 text-xl lg:text-2xl text-center text-wrap font-jura px-4"
+        class="subtitle text-yellow-300 text-2xl lg:text-3xl text-center text-wrap font-jura px-4 shadow-xl p-2 shadow-black"
       >
         COMPAÑÍA AZUCARERA HONDUREÑA, S.A
       </p>
@@ -31,7 +31,6 @@ import Link from "./ui/link.astro"
         Explora Nuestra Trayectoria
       </Link>
     </section>
-
     <video
       autoplay
       loop
@@ -59,6 +58,7 @@ import Link from "./ui/link.astro"
         const firstVideo = document.querySelector(
           "#main-video"
         ) as HTMLMediaElement
+        const overlay = document.querySelector(".loading-overlay")
 
         if (firstVideo) {
           const videos = document.querySelectorAll(
@@ -73,6 +73,13 @@ import Link from "./ui/link.astro"
 
             return
           }
+
+          firstVideo.addEventListener("loadeddata", () => {
+            videos.forEach((videoEl) => {
+              videoEl.classList.remove("hidden")
+              videoEl.classList.add("animate-fade")
+            })
+          })
         }
       })
     </script>
@@ -91,9 +98,6 @@ import Link from "./ui/link.astro"
 
       .subtitle {
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-      }
-      .background {
-        background: rgb(175, 175, 175);
       }
     </style>
   </div>

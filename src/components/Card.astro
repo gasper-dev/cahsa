@@ -1,6 +1,10 @@
+---
+import LisProducts from "./LisProducts.astro"
+---
+
 <div
   id="caNA"
-  class="animate-delay-500 space-y-6 justify-between p-8 pb-24 rounded-xl shadow-md text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center"
+  class="animate-delay-500 space-y-6 justify-between md:p-8 p-2 pb-16 rounded-xl shadow-md text-gray-600 md:flex flex-row-reverse md:gap-6 md:space-y-0 lg:gap-12 lg:items-center"
 >
   <div class="md:5/12 hidden md:block lg:w-1/2">
     <img
@@ -20,81 +24,27 @@
     </h2>
 
     <div class="divide-y space-y-4 divide-gray-100 dark:divide-green-400">
-      <div class="mt-8 flex gap-4 md:items-center">
-        <div class="w-12 mt-4 h-12 flex gap-4 rounded-full">
-          <img
-            src="AzucarBlanca.webp"
-            alt="image"
-            loading="lazy"
-            width=""
-            height=""
-            class="w-full h-full rounded-full object-cover"
-          />
-        </div>
-        <div class="w-5/6">
-          <h3
-            class="font-semibold text-lg pt-4 text-gray-700 dark:text-gray-200"
-          >
-            Azúcar Blanca
-          </h3>
-          <p class="text-gray-500 pt-2">
-            Azúcar altamente refinada, de aspecto blanco brillante y sabor dulce
-            y neutro. Ideal para panadería y repostería, carece de melaza y
-            otros componentes que puedan afectar su color y sabor.
-          </p>
-        </div>
-      </div>
-      <div class="mt-8 flex gap-4 md:items-center">
-        <div class="w-12 mt-4 h-12 flex gap-4 rounded-full">
-          <img
-            src="AzucarMorena.webp"
-            alt="image"
-            loading="lazy"
-            width=""
-            height=""
-            class="w-full h-full rounded-full object-cover"
-          />
-        </div>
-        <div class="w-5/6">
-          <h3
-            class="font-semibold text-lg pt-4 text-gray-700 dark:text-gray-200"
-          >
-            Azúcar Morena
-          </h3>
-          <p class="text-gray-500 pt-2">
-            El azúcar morena, de tono marrón oscuro, conserva melaza para un
-            sabor robusto y un ligero matiz caramelizado. Menos refinada que el
-            azúcar blanco, retiene nutrientes de la caña de azúcar.
-          </p>
-        </div>
-      </div>
-      <div class="mt-8 flex gap-4 md:items-center">
-        <div class="w-12 h-12 flex mt-4 gap-4 rounded-full">
-          <img
-            src="azucarRefinada.webp"
-            alt="image"
-            loading="lazy"
-            width=""
-            height=""
-            class="w-full h-full rounded-full object-cover"
-          />
-        </div>
-        <div class="w-5/6">
-          <h3
-            class="font-semibold text-lg pt-4 text-gray-700 dark:text-gray-200"
-          >
-            Azúcar Refinada
-          </h3>
-          <p class="text-gray-500 pt-2">
-            Azúcar blanco puro y granulado, sometido a refinamiento para
-            eliminar impurezas. Versátil y fácil de disolver, es ideal para
-            diversas recetas, desde postres hasta bebidas.
-          </p>
-        </div>
-      </div>
+      <LisProducts
+        img="AzucarBlanca.webp"
+        title="Azúcar Blanca"
+        pf="Azúcar altamente refinada, de aspecto blanco brillante y sabor dulce y neutro. Ideal para panadería y repostería, carece de melaza y otros componentes que puedan afectar su color y sabor."
+      />
+      <LisProducts
+        img="AzucarMorena.webp"
+        title="Azúcar Morena"
+        pf="El azúcar morena, de tono marrón oscuro, conserva melaza para un sabor robusto y un ligero matiz caramelizado. Menos refinada que el azúcar blanco, retiene nutrientes de la caña de azúcar."
+        <
+      />
+
+      <LisProducts
+        img="azucarRefinada.webp"
+        title="Azúcar Refinada"
+        pf="Azúcar blanco puro y granulado, sometido a refinamiento para eliminar impurezas. Versátil y fácil de disolver, es ideal para diversas recetas, desde postres hasta bebidas."
+      />
     </div>
   </div>
 </div>
+
 <script is:inline>
   document.addEventListener("astro:page-load", () => {
     observer = new IntersectionObserver((entries) => {
