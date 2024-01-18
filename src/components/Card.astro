@@ -46,21 +46,19 @@ import LisProducts from "./LisProducts.astro"
 </div>
 
 <script is:inline>
-  document.addEventListener("astro:page-load", () => {
-    observer = new IntersectionObserver((entries) => {
-      // Recorrer las entradas recibidas
-      entries.forEach((entry) => {
-        // Está visible en el viewport
-        if (entry.intersectionRatio > 0) {
-          // entry.target es el elemento que se está observando
-          // Agregar la clase para animar
-          entry.target.classList.add("animate-fade-up")
-          // Dejar de observar
-          observer.unobserve(entry.target)
-        }
-      })
+  observer = new IntersectionObserver((entries) => {
+    // Recorrer las entradas recibidas
+    entries.forEach((entry) => {
+      // Está visible en el viewport
+      if (entry.intersectionRatio > 0) {
+        // entry.target es el elemento que se está observando
+        // Agregar la clase para animar
+        entry.target.classList.add("animate-fade-up")
+        // Dejar de observar
+        observer.unobserve(entry.target)
+      }
     })
-    // Observar elemento a animar
-    observer.observe(document.querySelector("#caNA"))
   })
+  // Observar elemento a animar
+  observer.observe(document.querySelector("#caNA"))
 </script>

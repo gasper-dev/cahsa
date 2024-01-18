@@ -14,7 +14,8 @@
 <script>
   document.addEventListener("astro:page-load", () => {
     const currentYearElement = document.getElementById("currentYear")
-    if (currentYearElement)
+    if (currentYearElement) {
       currentYearElement.innerHTML = new Date().getFullYear().toString()
+    }
   })
 </script>
