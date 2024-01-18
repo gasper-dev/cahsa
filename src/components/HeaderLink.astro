@@ -13,10 +13,12 @@ const {
 } = Astro.props
 
 const currentPath = Astro.url.pathname
+console.log("currem path", currentPath)
 
 const destination = href
 
 const isActive = currentPath === destination && checkActive
+console.log("si es igual", isActive)
 ---
 
 <a
