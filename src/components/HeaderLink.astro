@@ -12,15 +12,18 @@ const {
   ...restOfProps
 } = Astro.props
 
-const currentPath = Astro.url.pathname
+const pathname = Astro.url.pathname
 
-const destination = href
+const path = pathname.match(/^\/$/) ? pathname : pathname.slice(0, -1)
+//console.log(path)
+//console.log(path)
 
-const isActive = currentPath === destination && checkActive
+const isActive = href === path && checkActive
+//console.log(isActive)
 ---
 
 <a
-  href={destination}
+  href={href}
   class:list={[
     className,
     "border-b-2 dark:text-yellow-300",
