@@ -15,11 +15,8 @@ const {
 const pathname = Astro.url.pathname
 
 const path = pathname.match(/^\/$/) ? pathname : pathname.slice(0, -1)
-//console.log(path)
-//console.log(path)
 
 const isActive = href === path && checkActive
-//console.log(isActive)
 ---
 
 <a
